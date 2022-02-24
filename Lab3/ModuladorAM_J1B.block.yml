@@ -1,0 +1,39 @@
+id: ModuladorAM_J1B
+label: ModuladorAM_J1B
+category: '[Modulos_J1BG06]'
+
+parameters:
+-   id: Ac
+    label: Amplitud portadora
+    dtype: real
+    default: '1'
+    hide: none
+-   id: ka
+    label: Coeficiente ka
+    dtype: real
+    default: '1'
+    hide: none
+
+inputs:
+-   label: m(t)
+    dtype: float
+    vlen: 1
+
+outputs:
+-   label: out
+    dtype: complex
+    vlen: 1
+
+templates:
+    imports: 'from ModuladorAM_J1B import ModuladorAM_J1B  # grc-generated hier_block'
+    make: "ModuladorAM_J1B(\n    Ac=${ Ac },\n    ka=${ ka },\n)"
+    callbacks:
+    - set_Ac(${ Ac })
+    - set_ka(${ ka })
+
+documentation: 'Jorge_Valeria
+
+    /home/labcom/Documentos/LabJ1B_G06/Lab3/ModuladorAM_J1B.py'
+grc_source: /home/labcom/Documentos/LabJ1B_G06/Lab3/ModuladorAM_L1B.grc
+
+file_format: 1
